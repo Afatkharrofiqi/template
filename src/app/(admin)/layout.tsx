@@ -1,10 +1,10 @@
-import React from 'react'
-import { AppSidebar } from "@/components/sidebar/app-sidebar"
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import type React from "react";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         {children}
       </SidebarInset>
     </SidebarProvider>
-  )
-}
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;

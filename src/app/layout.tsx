@@ -15,8 +15,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Minehaul',
-    default: 'Minehaul',
+    template: "%s | Minehaul",
+    default: "Minehaul",
   },
 };
 

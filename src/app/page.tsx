@@ -1,10 +1,8 @@
-'use client'
+"use client";
 
-import Login from '@/components/login'
-import React from 'react'
+import Login from "@/components/login";
+import React from "react";
 
 export default () => {
-    return (
-        <Login />
-    )
-}
+  return <Login />;
+};
