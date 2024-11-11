@@ -1,10 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import {
   Form,
   FormControl,
@@ -59,17 +64,16 @@ const Login = () => {
           />
         </a>
         <Card className="w-full md:max-w-md">
-          <CardHeader>
-            <CardTitle>Sign In</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form
-                method="POST"
-                className="space-y-4 md:space-y-6"
-                action="#"
-                onSubmit={form.handleSubmit(onSubmit)}
-              >
+          <Form {...form}>
+            <form
+              method="POST"
+              action="#"
+              onSubmit={form.handleSubmit(onSubmit)}
+            >
+              <CardHeader>
+                <CardTitle>Sign In</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
                 <FormField
                   control={form.control}
                   name="companyId"
@@ -127,12 +131,14 @@ const Login = () => {
                     );
                   }}
                 />
+              </CardContent>
+              <CardFooter>
                 <Button type="submit" className="w-full font-semibold">
                   Sign In
                 </Button>
-              </form>
-            </Form>
-          </CardContent>
+              </CardFooter>
+            </form>
+          </Form>
         </Card>
       </div>
     </section>

@@ -44,8 +44,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           className={cn(
             "flex h-11 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-            error ? "ring-2 ring-red-500" : "ring-transparent border-gray-300",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            error ? "ring-1 ring-red-500" : "ring-transparent border-gray-200",
+            "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
             className,
           )}
           {...props}

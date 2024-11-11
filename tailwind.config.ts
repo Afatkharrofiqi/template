@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        minehaul: "0px 8px 40px 0px rgba(0, 0, 0, 0.05)",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
