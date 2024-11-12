@@ -1,29 +1,26 @@
 "use client";
 
 import { NavMain } from "@/components/sidebar/nav-main";
-import { NavProjects } from "@/components/sidebar/nav-projects";
 import { NavUser } from "@/components/sidebar/nav-user";
-import { TeamSwitcher } from "@/components/sidebar/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   AudioWaveform,
   BookOpen,
   Bot,
   Command,
-  Frame,
   GalleryVerticalEnd,
-  Map,
-  PieChart,
+  LayoutDashboard,
   Settings2,
-  SquareTerminal,
 } from "lucide-react";
 import React from "react";
+import { RiMenuFold4Line, RiMenuUnfold4Line } from "react-icons/ri";
 import { ScrollArea } from "../ui/scroll-area";
 
 // This is sample data.
@@ -52,24 +49,10 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Dashboard",
+      url: "dashboard",
+      icon: LayoutDashboard,
       isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
     },
     {
       title: "Models",
@@ -137,35 +120,40 @@ const data = {
       ],
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { toggleSidebar, open } = useSidebar();
+
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+      <SidebarHeader className="p-4">
+        <div className="grid grid-cols-4 items-center">
+          {open ? (
+            <>
+              <RiMenuUnfold4Line
+                onClick={() => toggleSidebar()}
+                className="h-7 w-7 text-white"
+              />
+              <img
+                className="mr-2 w-[140px] col-span-3 md:max-w-[150px]"
+                src="/minehaul-white.png"
+                alt="logo"
+              />
+            </>
+          ) : (
+            <>
+              <RiMenuFold4Line
+                onClick={() => toggleSidebar()}
+                className="h-6 w-6 text-white"
+              />
+            </>
+          )}
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <ScrollArea className="rounded-md">
           <NavMain items={data.navMain} />
-          <NavProjects projects={data.projects} />
         </ScrollArea>
       </SidebarContent>
       <SidebarFooter>
