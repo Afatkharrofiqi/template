@@ -14,7 +14,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import { ChevronDown, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Badge } from "../ui/badge";
@@ -60,10 +60,10 @@ export function NavMain({
                         isActive={hasActiveSubItem}
                         className="relative flex items-center w-full"
                       >
-                        <Rectangle />
+                        <Rectangle variant={"rounded"} />
                         {item.icon && <item.icon className="!w-5 !h-5" />}
                         <span>{item.title}</span>
-                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        <ChevronDown className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:-rotate-180" />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
@@ -77,6 +77,7 @@ export function NavMain({
                                 isActive={subItemIsActive}
                               >
                                 <Link href={subItem.url}>
+                                  <div className="absolute left-[-5px] h-2 w-2 rounded-full bg-white hidden"></div>
                                   <span>{subItem.title}</span>
                                 </Link>
                               </SidebarMenuSubButton>
@@ -99,14 +100,17 @@ export function NavMain({
                       href={item.url}
                       className="relative flex items-center w-full"
                     >
-                      <Rectangle />
+                      <Rectangle variant={"rounded"} />
                       {item.icon && <item.icon className="!w-5 !h-5" />}
                       <span>{item.title}</span>
                       {item.endIcon && (
                         <item.endIcon className="ml-auto !w-5 !h-5" />
                       )}
                       {item.badge && (
-                        <Badge variant={"danger"} className="ml-auto">
+                        <Badge
+                          variant={"danger"}
+                          className="ml-auto !w-5 !h-5 justify-center"
+                        >
                           {item.badge}
                         </Badge>
                       )}

@@ -521,7 +521,7 @@ const SidebarMenuItem = React.forwardRef<
 SidebarMenuItem.displayName = "SidebarMenuItem";
 
 const sidebarMenuButtonVariants = cva(
-  "peer/menu-button flex w-full items-center gap-2 overflow-hidden p-4 text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent-gradient hover:text-sidebar-accent-gradient-foreground focus-visible:ring-2 active:bg-sidebar-accent-gradient active:text-sidebar-accent-gradient-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent-gradient data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-gradient-foreground data-[state=open]:hover:bg-sidebar-accent-gradient data-[state=open]:hover:text-sidebar-accent-gradient-foreground group-data-[collapsible=icon]:!size-9 group-data-[collapsible=icon]:!p-4 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>div:first-child]:hover:block [&>div:first-child]:data-[active=true]:block",
+  "peer/menu-button flex w-full items-center gap-2 overflow-hidden p-4 text-left text-sm text-sidebar-accent-muted font-semibold outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent-gradient hover:text-sidebar-accent-gradient-foreground focus-visible:ring-2 active:bg-sidebar-accent-gradient active:text-sidebar-accent-gradient-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent-gradient data-[active=true]:text-sidebar-accent-gradient-foreground data-[state=open]:hover:bg-sidebar-accent-gradient data-[state=open]:hover:text-sidebar-accent-gradient-foreground group-data-[collapsible=icon]:!size-9 group-data-[collapsible=icon]:!p-4 [&>span:last-child]:truncate [&>svg]:size-5 [&>svg]:shrink-0 [&>div:first-child]:hover:block [&>div:first-child]:data-[active=true]:block",
   {
     variants: {
       variant: {
@@ -700,7 +700,7 @@ const SidebarMenuSub = React.forwardRef<
     ref={ref}
     data-sidebar="menu-sub"
     className={cn(
-      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5",
+      "mx-3.5 flex min-w-0 translate-x-px flex-col px-2.5 py-4",
       "group-data-[collapsible=icon]:hidden",
       className,
     )}
@@ -732,8 +732,12 @@ const SidebarMenuSubButton = React.forwardRef<
       data-size={size}
       data-active={isActive}
       className={cn(
-        "flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-none ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",
-        "data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground",
+        "flex min-w-0 -translate-x-px items-center gap-2 border-l-2 border-sidebar-rail-muted overflow-visible py-4 px-7 text-sidebar-accent-muted font-semibold outline-none ring-sidebar-ring hover:text-white focus-visible:ring-2 active:text-white disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-white",
+        "data-[active=true]:text-white",
+        "data-[active=true]:border-white",
+        "[&>div:first-child]:data-[active=true]:block",
+        "[&>div:first-child]:hover:block",
+        "hover:border-white",
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
         "group-data-[collapsible=icon]:hidden",

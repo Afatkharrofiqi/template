@@ -62,6 +62,8 @@ export default {
           accent: "hsl(var(--sidebar-accent))",
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           "accent-gradient-foreground": "white",
+          "accent-muted": "#B3E8D1",
+          "rail-muted": "#FFFFFF4D",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
