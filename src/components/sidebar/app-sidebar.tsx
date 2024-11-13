@@ -42,12 +42,10 @@ const data = {
       title: "Configuration",
       url: "/configuration",
       icon: Bolt,
-      isActive: true,
       items: [
         {
           title: "User Management",
           url: "/configuration/user-management",
-          isActive: true,
         },
         {
           title: "Vehicles",
