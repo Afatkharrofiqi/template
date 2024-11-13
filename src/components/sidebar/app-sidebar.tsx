@@ -84,7 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavHeader />
       </SidebarHeader>
       <SidebarContent>
-        <ScrollArea className="rounded-md">
+        <ScrollArea>
           <NavMain items={data.navMain} />
         </ScrollArea>
       </SidebarContent>

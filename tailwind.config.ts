@@ -61,9 +61,14 @@ export default {
           "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
           accent: "hsl(var(--sidebar-accent))",
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          "accent-gradient-foreground": "white",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "sidebar-accent-gradient":
+          "linear-gradient(90deg, #156341 12.32%, #176E48 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",

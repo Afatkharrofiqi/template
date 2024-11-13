@@ -18,6 +18,7 @@ import { ChevronRight, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Badge } from "../ui/badge";
+import Rectangle from "./rectangle";
 
 export function NavMain({
   items,
@@ -54,7 +55,12 @@ export function NavMain({
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
-                      <SidebarMenuButton tooltip={item.title}>
+                      <SidebarMenuButton
+                        tooltip={item.title}
+                        isActive={hasActiveSubItem}
+                        className="relative flex items-center w-full"
+                      >
+                        <Rectangle />
                         {item.icon && <item.icon className="!w-5 !h-5" />}
                         <span>{item.title}</span>
                         <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -89,7 +95,11 @@ export function NavMain({
                     isActive={isActive}
                     className="flex items-center"
                   >
-                    <Link href={item.url} className="flex items-center w-full">
+                    <Link
+                      href={item.url}
+                      className="relative flex items-center w-full"
+                    >
+                      <Rectangle />
                       {item.icon && <item.icon className="!w-5 !h-5" />}
                       <span>{item.title}</span>
                       {item.endIcon && (
