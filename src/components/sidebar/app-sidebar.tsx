@@ -5,9 +5,7 @@ import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
-  SidebarRail,
 } from "@/components/ui/sidebar";
 import { Bell, Bolt, Cpu, Globe, LayoutDashboard } from "lucide-react";
 import React from "react";
@@ -17,8 +15,8 @@ import NavHeader from "./nav-header";
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "administrator_user",
+    email: "administrator_user@admins.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -82,16 +80,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader className="p-4">
         <NavHeader />
+        <NavUser user={data.user} />
       </SidebarHeader>
       <SidebarContent>
         <ScrollArea>
           <NavMain items={data.navMain} />
         </ScrollArea>
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
-      <SidebarRail />
+      {/* <SidebarRail /> */}
     </Sidebar>
   );
 }

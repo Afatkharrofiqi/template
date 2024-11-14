@@ -3,7 +3,7 @@
 import {
   BadgeCheck,
   Bell,
-  ChevronsUpDown,
+  ChevronRight,
   CreditCard,
   LogOut,
   Sparkles,
@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -42,20 +41,19 @@ export function NavUser({
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-            >
-              <Avatar className="h-8 w-8 rounded-lg">
+            <div className="grid grid-cols-5 p-4 rounded-lg bg-[#208056] data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:grid-cols-1 group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:p-0">
+              <Avatar className="h-8 w-8 rounded-full group-data-[collapsible=icon]:mx-auto">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-full text-primary">
+                  CN
+                </AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
+              <div className="grid col-span-3 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-semibold">{user.name}</span>
                 <span className="truncate text-xs">{user.email}</span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
-            </SidebarMenuButton>
+              <ChevronRight className="ml-auto my-auto size-4 group-data-[collapsible=icon]:hidden" />
+            </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
